@@ -4,9 +4,9 @@ import connectDb from "../../middleware/mongoose"
 import user from "../../models/user";
 var CryptoJS = require("crypto-js");
 var jwt = require('jsonwebtoken');
-import NextCors from 'nextjs-cors';
 
 const handler = async (req, res)=>{
+    
 
  if(req.method == 'POST')
 
