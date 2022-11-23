@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
 html,
 body {
   padding: 0;
@@ -15,6 +21,137 @@ a {
   box-sizing: border-box;
 }
 
+h2,h1,span{
+  font-family: 'Noto Serif JP', serif;
+}
+li,p{
+  font-family: 'EB Garamond', serif;
+
+}
+@media (max-width: 766px) {
+  .phoneli{
+    margin: -16px;
+    margin-top: 5px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 390px ) {
+  .navbg{
+   width: 110vh;
+  }
+}
+
+
+.Filmotrend{
+  font-size: 32px;
+  
+  
+  color: #d16ad9;
+  background-image: -webkit-linear-gradient(0deg, #d16ad9 21%, #db91a8 66%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  
+}
+
+
+@media (max-width: 390px ) {
+  .Filmotrend{
+   font-size:31px;
+  }
+}
+@media (max-width: 390px ) {
+  .navbg{
+   width: 120%;
+  }
+}
+@media (max-width: 900px ) {
+  .smallbg,.contactbg,.navbg,.fotterbg,.secbg,.loginbg,.herobg,.cartbg,.herodesbg{
+   width: 110%;
+  }
+}
+@media (max-width: 900px ) {
+  .herodesbg{
+  width: 110%;
+  }
+}
+@media (min-width: 901px ) {
+  .herodesbg{
+  margin: auto;
+  }
+}
+@media (max-width: 550px ) {
+  .smproduct{
+    position: relative;
+      bottom: 25px;
+
+  
+  }
+}
+
+@media (max-width: 400px ) {
+  .smproduct{
+    position: relative;
+    bottom: 25px;
+   
+    
+  
+  }
+}
+@media (max-width: 400px ) {
+  .smproduct h3{
+   color: red;
+   padding-top: 15px;
+   font-size: 15px;
+    
+  
+  }
+}
+@media (max-width: 400px ) {
+  .smproduct img{
+   width:95%;
+    
+  
+  }
+}
+@media (max-width: 400px ) {
+  .smproduct span{
+   
+   display: none;
+    
+  
+  }
+}
+
+
+ .smallbg{
+  /* background-color: #FFFFFF;
+background-image: linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%); */ 
+background-color: #D9AFD9;
+background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+
+}
+
+.herobg{
+
+
+background-image: url("../assets/modelpic.jpeg");
+
+background-repeat: no-repeat;
+background-size: cover;
+
+height: 10%;
+
+}
+
+
+
+
+
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -23,4 +160,24 @@ a {
     color: white;
     background: black;
   }
+}
+.navbg{
+  position: sticky; 
+background-color: #D9AFD9;
+background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+
+} 
+
+.navsvg{
+  color:white
+}
+
+
+
+.fotterbg{
+  background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+
 }
