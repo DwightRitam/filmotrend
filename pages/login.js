@@ -48,7 +48,7 @@ const login = () => {
       body: JSON.stringify(data)
     })
     let response = await res.json()
-    console.log(response);
+    // console.log(response);
     setName('')
     setEmail('')
     setPassword('')

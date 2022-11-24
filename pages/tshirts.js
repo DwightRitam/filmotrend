@@ -16,7 +16,7 @@ const tshirts = () => {
    
   }, [])
   const tshirtvalues=useSelector(gettshirts)
-console.log(tshirtvalues);
+// console.log(tshirtvalues);
   return (
 
     <div className="  p-6 herodesbg  space-y-8   ">

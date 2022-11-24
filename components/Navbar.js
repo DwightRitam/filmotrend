@@ -17,14 +17,14 @@ const Navbar = () => {
   // const token = localStorage.getItem('token')
   const success = localStorage.getItem('success')
 
-  console.log(success);
+  // console.log(success);
   const logout=()=>{
     localStorage.removeItem('success');
     router.push("https://filmotrend-mvqr.vercel.app")
   }
   // }, [])
   useEffect(()=>{
-console.log("success is changing");
+// console.log("success is changing");
   },[success])
 
 

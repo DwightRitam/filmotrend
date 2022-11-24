@@ -20,8 +20,8 @@ const Herodesign = (props) => {
 const buttonhadler=()=>{
   setCount(cartdata+1)
   dispatch(addstatecart(count))
-  console.log("cartdata is" ,count)
-  console.log("butonhandler");
+  // console.log("cartdata is" ,count)
+  // console.log("butonhandler");
   dispatch(addcart(count))
 }
 
