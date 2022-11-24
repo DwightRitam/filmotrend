@@ -30,7 +30,7 @@ const sign_in = () => {
 
     
 
-    let res= await fetch("https://filmotrend.vercel.app/api/signin",{
+    let res= await fetch("https://filmotrend-mvqr.vercel.app//api/signin",{
       method:"POST",
       headers:{
         'Content-Type':'application/json',
