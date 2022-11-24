@@ -8,7 +8,7 @@ category:{type: String, required:true},
 brand:{type: String, required:true},
 image:{type: String, required:true},
 price:{type: Number, required:true},
-slug:{type: String, required:true,unique: true},
+slug:{type: String, required:true},
 
 }, {timestamps:true});
 

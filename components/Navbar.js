@@ -14,10 +14,10 @@ const Navbar = () => {
   // const [user, setUser] = useState({value:null})
 
   // useEffect(() => {
-  const token = localStorage.getItem('token')
+  // const token = localStorage.getItem('token')
   const success = localStorage.getItem('success')
 
-  console.log(token, success);
+  console.log(success);
   const logout=()=>{
     localStorage.removeItem('success');
     router.push("http://localhost:3000")

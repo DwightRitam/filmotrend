@@ -1,9 +1,12 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 const login = () => {
+  const router=useRouter();
+
   const [name, setName] = useState()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
@@ -37,7 +40,7 @@ const login = () => {
 
     }
 
-    let res = await fetch("http://localhost:3000/api/login", {
+    let res = await fetch("https://filmotrend-mvqr.vercel.app/api/login", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -49,16 +52,36 @@ const login = () => {
     setName('')
     setEmail('')
     setPassword('')
-    toast.success('Your Account has been created', {
+    if(response.success==true)
+    {
+
+localStorage.setItem('success',response.success)
+    toast.success('You successfully logged in', {
       position: "bottom-left",
-      autoClose: 1000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
       theme: "light",
-    });
+      });
+      setTimeout(() => {
+        router.push("https://filmotrend-mvqr.vercel.app")
+      }, 1000);
+    }
+    else{
+      toast.error(response.error, {
+        position: "bottom-left",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
   }
   return (
     <>

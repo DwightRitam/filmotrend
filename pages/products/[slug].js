@@ -11,7 +11,7 @@ const slug = () => {
 const dispatch=useDispatch()
 useEffect(() => {
  
-  fetch(`http://localhost:3000/api/getprodbyid?slug=${arr[0]}`)
+  fetch(`https://filmotrend-mvqr.vercel.app/api/getprodbyid?slug=${arr[0]}`)
   .then((response) => response.json())
   .then((data) =>dispatch(addcartdetails(data.productbyid)));
  

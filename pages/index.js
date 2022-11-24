@@ -41,12 +41,12 @@ export default function Home() {
 					</div>
 					<div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
 						<article className="flex flex-col dark:bg-gray-900 w-[89%] md:w-[100%] md:m-0 m-auto">
-							 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
+							<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
 								<img alt="" className="md:object-cover w-[89%] m-auto md:m-0 md:w-full h-[22rem]  md:h-[21rem] dark:bg-gray-500" src="https://images.bestsellerclothing.in/data/JJ/aug-30-2022/111856004_g0.jpg?width=488&height=650&mode=fill&fill=blur&format=auto" />
-							 </Link> 
+							</Link>
 							<div className="flex flex-col flex-1 p-6">
-								 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link> 
-								 <Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Jack & Jones </Link> 
+								<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link>
+								<Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Jack & Jones </Link>
 								<h3 className="flex-1 py-9 md:py-0 text-lg font-semibold leading-snug">Grab out the latest tshirts on top brands</h3>
 								<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
 									<span>599</span>
@@ -57,12 +57,12 @@ export default function Home() {
 							</div>
 						</article>
 						<article className="flex flex-col dark:bg-gray-900 w-[89%] md:w-[100%] md:m-0 m-auto">
-							 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
+							<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
 								<img alt="" className="md:object-cover w-[89%] m-auto md:m-0 md:w-full h-[22rem]  md:h-[21rem] dark:bg-gray-500" src="https://assets.ajio.com/medias/sys_master/root/20221107/tlOU/636928f0aeb269659c77426a/-473Wx593H-465246268-multi-MODEL.jpg" />
-							 </Link> 
+							</Link>
 							<div className="flex flex-col flex-1 p-6">
-								 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link> 
-								 <Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Wrangler </Link> 
+								<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link>
+								<Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Wrangler </Link>
 								<h3 className="flex-1 py-9 md:py-0 text-lg font-semibold leading-snug">Grab out the latest Shirts on top brands</h3>
 								<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
 									<span>999</span>
@@ -73,12 +73,12 @@ export default function Home() {
 							</div>
 						</article>
 						<article className="flex flex-col dark:bg-gray-900 w-[89%] md:w-[100%] md:m-0 m-auto">
-							 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
+							<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
 								<img alt="" className="md:object-cover w-[89%] m-auto md:m-0 md:w-full h-[22rem]  md:h-[21rem] dark:bg-gray-500" src="https://assets.ajio.com/medias/sys_master/root/20220129/Q8Jm/61f45296f997dd662346bf21/-473Wx593H-469097250-white-MODEL2.jpg" />
-							 </Link> 
+							</Link>
 							<div className="flex flex-col flex-1 p-6">
-								 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link> 
-								 <Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Nike </Link> 
+								<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link>
+								<Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Nike </Link>
 								<h3 className="flex-1 py-9 md:py-0 text-lg font-semibold leading-snug">Grab out the latest Sneakers on top brands</h3>
 								<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
 									<span>2599</span>
@@ -89,12 +89,12 @@ export default function Home() {
 							</div>
 						</article>
 						<article className="flex flex-col dark:bg-gray-900 w-[89%] md:w-[100%] md:m-0 m-auto">
-							 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
+							<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
 								<img alt="" className="md:object-cover w-[89%] m-auto md:m-0 md:w-full h-[22rem]  md:h-[21rem] dark:bg-gray-500" src="https://images.bloomingdalesassets.com/is/image/BLM/products/8/optimized/11329468_fpx.tif?op_sharpen=1&wid=700&fit=fit,1&$filtersm$" />
-							 </Link> 
+							</Link>
 							<div className="flex flex-col flex-1 p-6">
-								 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link> 
-								 <Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Prada </Link> 
+								<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link>
+								<Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Prada </Link>
 								<h3 className="flex-1 py-9 md:py-0 text-lg font-semibold leading-snug">Grab out the latest sunglasses on top brands</h3>
 								<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
 									<span>3599</span>
@@ -104,14 +104,15 @@ export default function Home() {
 
 							</div>
 						</article>
-					</div><div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-					<article className="flex flex-col dark:bg-gray-900 w-[89%] md:w-[100%] md:m-0 m-auto">
-							 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
+					</div>
+					<div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+						<article className="flex flex-col dark:bg-gray-900 w-[89%] md:w-[100%] md:m-0 m-auto">
+							<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
 								<img alt="" className="md:object-cover w-[89%] m-auto md:m-0 md:w-full h-[22rem]  md:h-[21rem] dark:bg-gray-500" src="https://myer-media.com.au/wcsstore/MyerCatalogAssetStore/images/10/105/1511/402/1/562557250/562557250_1_720x928.jpg" />
-							 </Link> 
+							</Link>
 							<div className="flex flex-col flex-1 p-6">
-								 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link> 
-								 <Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Tommy hilfigure </Link> 
+								<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link>
+								<Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Tommy hilfigure </Link>
 								<h3 className="flex-1 py-9 md:py-0 text-lg font-semibold leading-snug">Grab out the latest watches on top brands</h3>
 								<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
 									<span>3599</span>
@@ -122,12 +123,12 @@ export default function Home() {
 							</div>
 						</article>
 						<article className="flex flex-col dark:bg-gray-900 w-[89%] md:w-[100%] md:m-0 m-auto">
-							 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
+							<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
 								<img alt="" className="md:object-cover w-[89%] m-auto md:m-0 md:w-full h-[22rem]  md:h-[21rem] dark:bg-gray-500" src="https://imagescdn.allensolly.com/img/app/product/4/468103-3297646.jpg?auto=format" subtext="Flat 40% off on selected product" />
-							 </Link> 
+							</Link>
 							<div className="flex flex-col flex-1 p-6">
-								 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link> 
-								 <Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Allen solly </Link> 
+								<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link>
+								<Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Allen solly </Link>
 								<h3 className="flex-1 py-9 md:py-0 text-lg font-semibold leading-snug">Grab out the latest blazers on top brands</h3>
 								<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
 									<span>2599</span>
@@ -138,12 +139,12 @@ export default function Home() {
 							</div>
 						</article>
 						<article className="flex flex-col dark:bg-gray-900 w-[89%] md:w-[100%] md:m-0 m-auto">
-							 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
-								<img alt="" className="md:object-cover w-[89%] m-auto md:m-0 md:w-full h-[22rem]  md:h-[21rem] dark:bg-gray-500" src="https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/16952686/2022/6/4/3ef1ada0-bb1a-4c11-af00-da518f257f2e1654336831400-BEAT-LONDON-by-PEPE-JEANS-Men-Blue-Mildly-Distressed-Light-F-1.jpg"  />
-							 </Link> 
+							<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
+								<img alt="" className="md:object-cover w-[89%] m-auto md:m-0 md:w-full h-[22rem]  md:h-[21rem] dark:bg-gray-500" src="https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/16952686/2022/6/4/3ef1ada0-bb1a-4c11-af00-da518f257f2e1654336831400-BEAT-LONDON-by-PEPE-JEANS-Men-Blue-Mildly-Distressed-Light-F-1.jpg" />
+							</Link>
 							<div className="flex flex-col flex-1 p-6">
-								 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link> 
-								 <Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Pepe Jeans </Link> 
+								<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link>
+								<Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Pepe Jeans </Link>
 								<h3 className="flex-1 py-9 md:py-0 text-lg font-semibold leading-snug">Grab out the latest jeans on top brands</h3>
 								<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
 									<span>1299</span>
@@ -154,12 +155,12 @@ export default function Home() {
 							</div>
 						</article>
 						<article className="flex flex-col dark:bg-gray-900 w-[89%] md:w-[100%] md:m-0 m-auto">
-							 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
+							<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum">
 								<img alt="" className="md:object-cover w-[89%] m-auto md:m-0 md:w-full h-[22rem]  md:h-[21rem] dark:bg-gray-500" src="https://www.levi.in/dw/image/v2/BBRC_PRD/on/demandware.static/-/Sites-LeviMaster-Catalog/en_IN/dwed645536/images/hi-res/596380156/596380156_01_Front.jpg?sw=299&sh=397&ox=0&oy=0&oimg=https%3A%2F%2Fwww.levi.in%2Fdw%2Fimage%2Fv2%2FBBRC_PRD%2Fon%2Fdemandware.static%2F-%2FSites-LeviMaster-Catalog%2Fen_IN%2Fdw8806506a%2Fimages%2Fbadge%2FOnlineexclusivenewaugust.png%3Fsw%3D309%26sh%3D397" />
-							 </Link> 
+							</Link>
 							<div className="flex flex-col flex-1 p-6">
-								 <Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link> 
-								 <Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Levis </Link> 
+								<Link rel="noopener noreferrer" href="/" aria-label="Te nulla oportere reprimique his dolorum"> </Link>
+								<Link rel="noopener noreferrer" href="/" className="text-xs tracking-wider uppercase hover:underline dark:text-violet-400">Levis </Link>
 								<h3 className="flex-1 py-9 md:py-0 text-lg font-semibold leading-snug">Grab out the latest Sweatshirts on top brands</h3>
 								<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
 									<span>999</span>

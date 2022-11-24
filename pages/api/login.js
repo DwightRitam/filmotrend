@@ -14,11 +14,11 @@ const handler = async (req, res)=>{
     let u= new user({name,email,password:CryptoJS.AES.encrypt(req.body.password, 'ritambhaizindabad').toString()});
 
     await u.save()
-res.status (200).json({ success:"success" })
+res.status (200).json({ success:true })
  }
  else{
 
-     res.status (400).json({ error:"this method don' apply for this page" })
+     res.status (400).json({ error:"user with same email already exist" })
  }
 
 }
