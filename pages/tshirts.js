@@ -10,7 +10,7 @@ const tshirts = () => {
 
   useEffect(() => {
  
-    fetch("http://localhost:3000/api/gettshirts")
+    fetch("https://filmotrend-mvqr.vercel.app/api/gettshirts")
     .then((response) => response.json())
     .then((data) =>dispatch(addtshirts(data.tshirts)));
    
