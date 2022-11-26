@@ -69,7 +69,7 @@ const  carhandler= async(id)=>{
     price: cartvalues.price,
     slug:cartvalues.slug }
 
-  let res = await fetch("https://filmotrend-mvqr.vercel.app//api/addcartdata", {
+  let res = await fetch("https://filmotrend-mvqr.vercel.app/api/addcartdata", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ const  carhandler= async(id)=>{
       theme: "light",
       });
       setTimeout(() => {
-        router.push("https://filmotrend-mvqr.vercel.app//cart")
+        router.push("https://filmotrend-mvqr.vercel.app/cart")
       }, 1000);
    
     }
