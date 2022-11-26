@@ -67,7 +67,7 @@ li,p{
   }
 }
 @media (max-width: 900px ) {
-  .smallbg,.contactbg,.navbg,.fotterbg,.secbg,.loginbg,.herobg,.cartbg,.herodesbg{
+  .smallbg,.contactbg,.navbg,.fotterbg,.secbg,.loginbg,.herobg,.cartbg,.herodesbg,.slugbg{
    width: 110%;
   }
 }

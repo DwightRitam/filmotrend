@@ -3,20 +3,25 @@ import { useDispatch, useSelector } from 'react-redux'
 import Herodesign from '../components/Herodesign'
 // import products from '../models/products'
 // import mongoose from "mongoose"
-import { addtshirts, gettshirts } from '../redux/slice'
+import { addcart, addtshirts, allprodtotalcartdetails, getallprodtotalcartdetails, gettshirts } from '../redux/slice'
 
 const tshirts = () => {
   const dispatch=useDispatch()
 
   useEffect(() => {
  
-    fetch("https://filmotrend-mvqr.vercel.app/api/gettshirts")
+    fetch("https://filmotrend-mvqr.vercel.app//api/gettshirts")
     .then((response) => response.json())
     .then((data) =>dispatch(addtshirts(data.tshirts)));
+    
+		
    
   }, [])
   const tshirtvalues=useSelector(gettshirts)
-// console.log(tshirtvalues);
+  // tshirtvalues.forEach(element => {
+    
+  //   // console.log(element._id);
+  // });
   return (
 
     <div className="  p-6 herodesbg  space-y-8   ">
