@@ -18,7 +18,7 @@ const cart = () => {
 	  }, [])
 	const  newetcartdata = useSelector(newgetallprodtotalcartdetails)
 	dispatch(addcart(newetcartdata.length))
-	// console.log(newetcartdata);
+	console.log(newetcartdata);
 	let sum=0;
 	for (let i = 0; i < newetcartdata.length; i++) {
 		const element = newetcartdata[i];
