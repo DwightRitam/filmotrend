@@ -20,7 +20,7 @@ const [cartItems, setCartItems] = useState(cartdata);
 const dispatch=useDispatch()
 useEffect(() => {
  
-  fetch(`https://filmotrend-mvqr.vercel.app/api/getprodbyid?slug=${arr[0]}`)
+  fetch(`https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app/api/getprodbyid?slug=${arr[0]}`)
   .then((response) => response.json())
   .then((data) =>dispatch(addcartdetails(data.productbyid)));
 
@@ -52,7 +52,7 @@ const addtocart=useSelector(getcartresponse)
 //   //   price: cartvalues.price,
 //   //   slug:cartvalues.slug }
 
-//   let res = await fetch("https://filmotrend-mvqr.vercel.app//api/addcartdata", {
+//   let res = await fetch("https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app//api/addcartdata", {
 //       method: "POST",
 //       headers: {
 //         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const addtocart=useSelector(getcartresponse)
 //       theme: "light",
 //       });
 //       setTimeout(() => {
-//         router.push("https://filmotrend-mvqr.vercel.app//cart")
+//         router.push("https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app//cart")
 //       }, 1000);
    
 //     }

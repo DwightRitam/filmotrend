@@ -11,7 +11,7 @@ const cart = () => {
 	const dispatch = useDispatch();
 	// useEffect(() => {
 
-	// 	fetch("https://filmotrend-mvqr.vercel.app//api/getcartdetails")
+	// 	fetch("https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app//api/getcartdetails")
 	// 	.then((response) => response.json())
 	// 	.then((data) =>dispatch(newallprodtotalcartdetails(data.cartvalues)));
 
@@ -32,7 +32,7 @@ const cart = () => {
 	// 	// console.log("id is", id);
 
 	// 	const data=[]
-	// 	let res = await fetch(`https://filmotrend-mvqr.vercel.app//api/deletecartdetails?slug=${id}`, {
+	// 	let res = await fetch(`https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app//api/deletecartdetails?slug=${id}`, {
 	// 	  method: "DELETE",
 	// 	  headers: {
 	// 		'Content-Type': 'application/json',
