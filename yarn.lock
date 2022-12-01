@@ -2381,10 +2381,10 @@
   dependencies:
     "prop-types" "^15.5.8"
 
-"react-icons@^4.6.0":
-  "integrity" "sha512-rR/L9m9340yO8yv1QT1QurxWQvWpbNHqVX0fzMln2HEb9TEIrQRGsqiNFQfiv9/JEUbyHmHPlNTB2LWm2Ttz0g=="
-  "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-4.6.0.tgz"
-  "version" "4.6.0"
+"react-icons@^4.6.0", "react-icons@^4.7.1":
+  "integrity" "sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw=="
+  "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-4.7.1.tgz"
+  "version" "4.7.1"
 
 "react-indiana-drag-scroll@^2.2.0":
   "integrity" "sha512-+W/3B2OQV0FrbdnsoIo4dww/xpH0MUQJz6ziQb7H+oBko3OCbXuzDFYnho6v6yhGrYDNWYPuFUewb89IONEl/A=="

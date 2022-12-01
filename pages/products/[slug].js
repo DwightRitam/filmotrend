@@ -9,13 +9,18 @@ import Link from 'next/link'
 
 
 const slug = () => {
-// const [article, setArticle] = useState([])
+// const [showCart, setShowCart] = useState(false);
+const cartdata=useSelector(newgetallprodtotalcartdetails)
+
+const [cartItems, setCartItems] = useState(cartdata);
+
+
   let arr=window.location.pathname.split('/').slice(2)
 //  console.log(arr[0])
 const dispatch=useDispatch()
 useEffect(() => {
  
-  fetch(`https://filmotrend-mvqr.vercel.app//api/getprodbyid?slug=${arr[0]}`)
+  fetch(`https://filmotrend-mvqr.vercel.app/api/getprodbyid?slug=${arr[0]}`)
   .then((response) => response.json())
   .then((data) =>dispatch(addcartdetails(data.productbyid)));
 
@@ -24,103 +29,127 @@ useEffect(() => {
  
 }, [])
 const cartvalues=useSelector(getaddcartdetails)
+console.log(cartvalues._id);
 
-// const allarrayofid=useSelector(getaddarrayofprodid)
-// console.log("mdffm",allarrayofid);
-
-//  let localstorageid= localStorage.getItem("arrayofid")
 const router=useRouter();
 
 const [cartstate, setCartstate] = useState(false)
-// const [touchedcart, setTouchedcart] = useState([])
 const addtocart=useSelector(getcartresponse)
 
-// console.log("localstorageid is" ,localstorageid);
-// const tshirtvalues=useSelector(gettshirts)
 
-// tshirtvalues.forEach(element => {
+
+// const  carhandler= async(id)=>{
   
-//   // console.log( "all prod is",element._id);
-//   arrayofid.push(element._id)
-//   // localStorage.setItem("arrayofid",JSON.stringify(element._id))
-// });
+//   dispatch(addcartdetails(cartvalues));
 
-// console.log( "arrayofid is",  arrayofid);
+//   // const data = {
+//   //   title:cartvalues.title,
+//   //   desc:cartvalues.desc,
+//   //   category:cartvalues.category,
+//   //   brand :cartvalues.brand,
+//   //   image:cartvalues.image,
+//   //   image:cartvalues.image,
+//   //   price: cartvalues.price,
+//   //   slug:cartvalues.slug }
 
-
-// localStorage.setItem("successid",true)
-
-const  carhandler= async(id)=>{
-  // console.log("item added to the cart",id);
-  // touchedcart.push(allarrayofid)
-  
-
-  // dispatch(addarrayofprodid(touchedcart))
-  
-  dispatch(addcartdetails(cartvalues));
-
-  const data = {
-    title:cartvalues.title,
-    desc:cartvalues.desc,
-    category:cartvalues.category,
-    brand :cartvalues.brand,
-    image:cartvalues.image,
-    image:cartvalues.image,
-    price: cartvalues.price,
-    slug:cartvalues.slug }
-
-  let res = await fetch("https://filmotrend-mvqr.vercel.app/api/addcartdata", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    })
-    let response = await res.json()
-    setCartstate(response.success)
-    dispatch(addcartresponse(cartstate))
+//   let res = await fetch("https://filmotrend-mvqr.vercel.app//api/addcartdata", {
+//       method: "POST",
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(data)
+//     })
+//     let response = await res.json()
+//     setCartstate(response.success)
+//     dispatch(addcartresponse(cartstate))
 
    
   
-    console.log( "response is", response.success);
-    console.log( "response  after  reload is",!addtocart);
+//     console.log( "response is", response.success);
+//     console.log( "response  after  reload is",!addtocart);
 
 
 
-    if(response.success==true)
-    {
+//     if(response.success==true)
+//     {
 
-    toast.success('Your desired product has been carted', {
-      position: "bottom-left",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
-      setTimeout(() => {
-        router.push("https://filmotrend-mvqr.vercel.app/cart")
-      }, 1000);
+//     toast.success('Your desired product has been carted', {
+//       position: "bottom-left",
+//       autoClose: 3000,
+//       hideProgressBar: false,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//       progress: undefined,
+//       theme: "light",
+//       });
+//       setTimeout(() => {
+//         router.push("https://filmotrend-mvqr.vercel.app//cart")
+//       }, 1000);
    
-    }
-    else{
-      toast.error(response.error, {
-        position: "bottom-left",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
-    }
+//     }
+//     else{
+//       toast.error(response.error, {
+//         position: "bottom-left",
+//         autoClose: 1000,
+//         hideProgressBar: false,
+//         closeOnClick: true,
+//         pauseOnHover: true,
+//         draggable: true,
+//         progress: undefined,
+//         theme: "light",
+//         });
+//     }
 
+// }
+const [totalPrice, setTotalPrice] = useState(0);
+
+const carhandler=async(id,cartdata)=>{
+  // console.log("carted product is is",id);
+  // console.log("cartvalues are",cartdata);
+  const checkProductInCart = cartItems.find((item) => item._id === cartdata._id);
+  setTotalPrice((prevTotalPrice) => prevTotalPrice + cartdata.price )
+  // setTotalQuanitites((prevTotalQuantities) => prevTotalQuantities + quantity);
+  if (checkProductInCart) {
+      const updatedCartItems = cartItems.map((cartProduct) => {
+          if (cartProduct._id === cartdata._id) return {
+              ...cartProduct,
+              price: cartProduct.price +cartProduct.price
+          }
+      })
+      setCartItems(updatedCartItems)
+      console.log("product already exist");
+      // console.log(cartItems);
+
+  } else {
+      // product.quantity = quantity;
+      setCartItems([...cartItems, { ...cartdata }]);
+      // console.log(cartItems);
+  }
+  toast.success('Your desired product has been carted', {
+          position: "bottom-left",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+
+  
 }
+dispatch(newallprodtotalcartdetails(cartItems))
 
-// console.log("cartsate is afer", cartstate );
+// console.log(cartItems);
+// cartItems.push(cartdata)
+
+
+// console.log(cartdata);
+
+
+
+
 
   return (
     <>
@@ -197,9 +226,9 @@ Try & Buy might be available</p>
         <div className="flex pt-[20px]">
           <span className="title-font font-medium text-2xl text-gray-900">Price :{cartvalues.price}</span>
 
-          {!cartstate &&  <button onClick={()=>carhandler(cartvalues._id)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded ">Add to cart</button>}
+          <button onClick={()=>carhandler(cartvalues._id,cartvalues)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded ">Add to cart</button>
 
-          {cartstate &&  <button  className="flex   ml-auto text-white bg-indigo-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-indigo-600 rounded ">GO to cart</button>}
+         
 
           <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
             <svg fill="currentColor" strokeLinecap="round" stroke-linejoin="round" stroke-width="2" className="w-5 h-5" viewBox="0 0 24 24">

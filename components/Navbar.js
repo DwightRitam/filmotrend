@@ -7,21 +7,34 @@ import { getstatedata, getwebtokendeails } from '../redux/slice';
 import { useRouter } from 'next/router';
 
 const Navbar = () => {
-	const cartdata = useSelector(getstatedata)
-  const router=useRouter();
+  const cartdata = useSelector(getstatedata)
+  const router = useRouter();
   const [navbar, setNavbar] = useState(false);
   
+  const [toggledclass, settoggledclass] = useState("hidden");
+
+
+  const toggle = () => {
+    if (toggledclass == "hidden") {
+      settoggledclass("block")
+    }
+    else {
+      settoggledclass("hidden")
+    }
+
+  }
+
   const success = localStorage.getItem('success')
 
   // console.log(success);
-  const logout=()=>{
+  const logout = () => {
     localStorage.removeItem('success');
     router.push("https://filmotrend-mvqr.vercel.app")
   }
   // }, [])
-  useEffect(()=>{
-// console.log("success is changing");
-  },[success])
+  useEffect(() => {
+    // console.log("success is changing");
+  }, [success])
 
 
 
@@ -61,25 +74,27 @@ const Navbar = () => {
                 </Link>
                 <ul className=" flex md:hidden text-red-600 items-center md:ml-6   md:space-x-1 md:space-y-0 ">
 
-                {success && < li className="text-white p-3">
-                
-                <svg onClick={logout}  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                  </svg>
-  
-              </li>}
-              {!success && < li className="text-white p-3">
-              <Link href="/login">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                  </svg>
-                  </Link>
-              </li>}
-                  <li className="text-white p-3">
-                    <Link href="/wishlist">
+                  {success && < li className="text-white p-3 cursor-pointer" title='log-out'>
+
+                    <svg onClick={logout} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                    </svg>
+
+                  </li>}
+                  {!success && < li className="text-white p-3">
+                    <Link href="/login">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                       </svg>
+                    </Link>
+                  </li>}
+                  <li className="text-white p-3">
+                    <Link href="/contact">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                      </svg>
+
+
 
                     </Link>
                   </li>
@@ -114,33 +129,48 @@ const Navbar = () => {
               >
                 <ul className="  items-center md:ml-6 md:justify-between md:flex md:space-x-1 md:space-y-0 ">
                   <li className="text-white p-3 text-lg">
-                    <Link href="/shop">
-                      Shop
+                    <Link href="/tshirts">
+                      Tshirts
                     </Link>
                   </li>
                   <li className="text-white p-3">
-                    <Link href="/products">
-                      Products
+                    <Link href="/shirts">
+                      Shirts
                     </Link>
                   </li>
 
                   <li className="text-white p-3">
-                    <Link href="/contact">
-                      Contact
+                    <Link href="/jeans">
+                      Jeans
 
                     </Link>
                   </li>
                   <li className="text-white p-3">
-                    <Link href="/beauty">
-                      Beauty
+                    <Link href="/sweatshirts">
+                      Sweatshirts
 
                     </Link>
                   </li>
                   <li className="text-white p-3">
-                    <Link href="/studio">
-                      Studio
 
-                    </Link>
+                    <div class="p-[0.5rem]">
+
+                      <div onClick={toggle}  class=" dropdown inline-block relative">
+                        <button class="  font-semibold py-2 mt-[-9px] md:m-0 ml-[-24px] md:ml-[-25px] px-4 rounded inline-flex items-center">
+                          <span class="mr-1">More </span>
+                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /> </svg>
+                        </button>
+                        <ul class={`dropdown-menu absolute ${toggledclass} text-gray-700 pt-1`}>
+                          <Link href='/watches'> <li class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Watches</li></Link>
+                          <Link href='/blazers'> <li class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Blazers</li></Link>
+                          <Link href='/sunglasses'> <li class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Sunglasses</li></Link>
+                          <Link href='/sneakers'> <li class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">Sneakers</li></Link>
+
+
+                        </ul>
+                      </div>
+
+                    </div>
                   </li>
 
 
@@ -152,28 +182,29 @@ const Navbar = () => {
             <ul className="hidden text-red-600 items-center md:ml-6 md:justify-between md:flex md:space-x-1 md:space-y-0 ">
 
 
-              {success && < li className="text-white p-3">
-                <svg onClick={logout}  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                  </svg>
-                  
+              {success && < li className="text-white p-3 cursor-pointer" title='log-out'>
+                <svg onClick={logout} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                </svg>
+
 
 
               </li>}
               {!success && < li className="text-white p-3">
-              <Link href="/login">
+                <Link href="/login">
 
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                   </svg>
-                  </Link>
+                </Link>
 
               </li>}
               <li className="text-white p-3">
-                <Link href="/wishlist">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                    <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                <Link href="/contact">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
+
 
 
                 </Link>

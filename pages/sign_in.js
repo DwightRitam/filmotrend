@@ -38,8 +38,7 @@ const sign_in = () => {
       body: JSON.stringify(data)
     })
     let response=await res.json()
-    // console.log(response);
-    // dispatch(setwebtoken(response))
+    
     setEmail('')
     setPassword('')
     if(response.success==true)
