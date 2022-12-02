@@ -9,7 +9,7 @@ const shirts = () => {
 
   useEffect(() => {
  
-    fetch("https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app/api/getShirts")
+    fetch("http://localhost:3000/api/getShirts")
     .then((response) => response.json())
     .then((data) =>dispatch(addshirts(data.shirts)));
     
@@ -24,7 +24,7 @@ const shirts = () => {
 
     <div className="  p-3 herodesbg  space-y-8  ">
       <div className="space-y-2 text-center">
-			<h2 className="text-3xl font-bold">All the trendy Shirts of of top notch brand is out here</h2>
+			<h2 className="text-3xl font-bold mt-[2rem]">All the trendy Shirts of of top notch brand is out here</h2>
 			<p className="font-serif text-sm dark:text-gray-400">"Flat 40% off on selected product" .</p>
 		</div>
                          

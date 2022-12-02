@@ -30,7 +30,7 @@ const sign_in = () => {
 
     
 
-    let res= await fetch("https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app/api/signin",{
+    let res= await fetch("http://localhost:3000/api/signin",{
       method:"POST",
       headers:{
         'Content-Type':'application/json',
@@ -56,7 +56,7 @@ localStorage.setItem('success',response.success)
       theme: "light",
       });
       setTimeout(() => {
-        router.push("https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app")
+        router.push("http://localhost:3000")
       }, 1000);
     }
     else{

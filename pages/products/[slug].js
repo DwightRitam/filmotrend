@@ -16,11 +16,11 @@ const [cartItems, setCartItems] = useState(cartdata);
 
 
   let arr=window.location.pathname.split('/').slice(2)
-//  console.log(arr[0])
+ console.log(arr[0])
 const dispatch=useDispatch()
 useEffect(() => {
  
-  fetch(`https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app/api/getprodbyid?slug=${arr[0]}`)
+  fetch(`http://localhost:3000/api/getprodbyid?slug=${arr[0]}`)
   .then((response) => response.json())
   .then((data) =>dispatch(addcartdetails(data.productbyid)));
 
@@ -29,7 +29,10 @@ useEffect(() => {
  
 }, [])
 const cartvalues=useSelector(getaddcartdetails)
-console.log(cartvalues._id);
+// console.log(cartvalues._id);
+// console.log(cartvalues);
+
+
 
 const router=useRouter();
 
@@ -103,32 +106,40 @@ const addtocart=useSelector(getcartresponse)
 
 // }
 const [totalPrice, setTotalPrice] = useState(0);
+const [totalquantity, setTotalquantity] = useState(0)
+
 
 const carhandler=async(id,cartdata)=>{
   // console.log("carted product is is",id);
-  // console.log("cartvalues are",cartdata);
+  // console.log("quantity is",quantity);
   const checkProductInCart = cartItems.find((item) => item._id === cartdata._id);
-  setTotalPrice((prevTotalPrice) => prevTotalPrice + cartdata.price )
-  // setTotalQuanitites((prevTotalQuantities) => prevTotalQuantities + quantity);
+  setTotalPrice((prevTotalPrice) =>prevTotalPrice + cartdata.price  )
+  setTotalquantity((prevTotalQuantity) =>prevTotalQuantity + cartdata.quantity  )
   if (checkProductInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
           if (cartProduct._id === cartdata._id) return {
               ...cartProduct,
-              price: cartProduct.price +cartProduct.price
+              price: cartProduct.price +cartProduct.price,
+              quantity: cartProduct.quantity +cartProduct.quantity
+
           }
       })
       setCartItems(updatedCartItems)
-      console.log("product already exist");
+      // console.log("product already exist");
       // console.log(cartItems);
+      setCartstate(true)
 
   } else {
-      // product.quantity = quantity;
+    
+ 
       setCartItems([...cartItems, { ...cartdata }]);
       // console.log(cartItems);
+      setCartstate(true)
+
   }
   toast.success('Your desired product has been carted', {
           position: "bottom-left",
-          autoClose: 2000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -138,18 +149,18 @@ const carhandler=async(id,cartdata)=>{
           });
 
   
-}
-dispatch(newallprodtotalcartdetails(cartItems))
+        }
+        if(cartstate)
+        {
+          dispatch(newallprodtotalcartdetails(cartItems))
 
-// console.log(cartItems);
-// cartItems.push(cartdata)
+          // console.log("carted");
 
+          setTimeout(() => {
+            router.push("http://localhost:3000/cart")
+          }, 1500);
 
-// console.log(cartdata);
-
-
-
-
+        }
 
   return (
     <>
@@ -175,7 +186,7 @@ dispatch(newallprodtotalcartdetails(cartItems))
   <div className="container px-5  mx-auto pb-[3rem] ;
     width: 85%;">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="ecommerce" className="lg:w-[40%] m-auto w-[80%] object-top h-[26rem]  md:h-[29rem]  rounded"
+      <img alt="ecommerce" className="lg:w-[40%] m-auto w-[80%] object-top h-[26rem] md:m-auto border border-slate-400 hover:border-none   md:h-[29rem]  rounded"
        src={cartvalues.image}/>
       <div className="lg:w-[58%] w-full   mt-6 lg:mt-0 p-[3.5rem] md:p-[2.5rem]" >
         <h2 className="text-sm title-font text-gray-500 tracking-widest">{cartvalues.brand}</h2>
@@ -226,7 +237,7 @@ Try & Buy might be available</p>
         <div className="flex pt-[20px]">
           <span className="title-font font-medium text-2xl text-gray-900">Price :{cartvalues.price}</span>
 
-          <button onClick={()=>carhandler(cartvalues._id,cartvalues)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded ">Add to cart</button>
+          <button onClick={()=>carhandler(cartvalues._id,cartvalues,cartvalues.quantity)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded ">Add to cart</button>
 
          
 
@@ -246,6 +257,7 @@ Try & Buy might be available</p>
 </section>
   
 </>
+
   )
 }
 

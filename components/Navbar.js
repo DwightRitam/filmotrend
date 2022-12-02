@@ -29,7 +29,7 @@ const Navbar = () => {
   // console.log(success);
   const logout = () => {
     localStorage.removeItem('success');
-    router.push("https://filmotrend-mvqr.vercel.app")
+    router.push("http://localhost:3000")
   }
   // }, [])
   useEffect(() => {

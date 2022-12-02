@@ -9,86 +9,114 @@ import Link from 'next/link'
 const cart = () => {
 	const router = useRouter();
 	const dispatch = useDispatch();
-	// useEffect(() => {
-
-	// 	fetch("https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app//api/getcartdetails")
-	// 	.then((response) => response.json())
-	// 	.then((data) =>dispatch(newallprodtotalcartdetails(data.cartvalues)));
-
-
-	//   }, [])
+	
 	const newetcartdata = useSelector(newgetallprodtotalcartdetails)
-
+	const [cartItems, setCartItems] = useState(newetcartdata);
+	// console.log(cartItems);
+	
 	dispatch(addcart(newetcartdata.length))
-	console.log(newetcartdata);
+	// console.log(newetcartdata);
 	let sum = 0;
 	for (let i = 0; i < newetcartdata.length; i++) {
 		const element = newetcartdata[i];
 		sum += element.price
-		// console.log(sum,"length is",i);
 	}
-
-	// const removecart = async (id) => {
-	// 	// console.log("id is", id);
-
-	// 	const data=[]
-	// 	let res = await fetch(`https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app//api/deletecartdetails?slug=${id}`, {
-	// 	  method: "DELETE",
-	// 	  headers: {
-	// 		'Content-Type': 'application/json',
-	// 	  },
-	// 	  body: JSON.stringify(data)
-	// 	})
-	// 	let response = await res.json()
-	// 	// console.log(response);
-
-	// 	if(response.success==true)
-	// 	{
-
-	// // localStorage.setItem('success',response.success)
-	// 	toast.success('Item has been removed from cart successfully', {
-	// 	  position: "bottom-left",
-	// 	  autoClose: 3000,
-	// 	  hideProgressBar: false,
-	// 	  closeOnClick: true,
-	// 	  pauseOnHover: true,
-	// 	  draggable: true,
-	// 	  progress: undefined,
-	// 	  theme: "light",
-	// 	  });
-	// 	  setTimeout(() => {
-	// 		router.reload(window.location.pathname)
-	// 	  }, 1000);
-	// 	}
-	// 	else{
-	// 	  toast.error(response.error, {
-	// 		position: "bottom-left",
-	// 		autoClose: 1000,
-	// 		hideProgressBar: false,
-	// 		closeOnClick: true,
-	// 		pauseOnHover: true,
-	// 		draggable: true,
-	// 		progress: undefined,
-	// 		theme: "light",
-	// 		});
-	// 	}
-	//   }
+	
+	const [TotalPrice, setTotalPrice] = useState(sum);
+	
 
 	let foundProduct;
-	const onRemove = (product) => {
-		foundProduct = newetcartdata.find((item) => item._id ===
-			product._id)
-		const newCartItems = newetcartdata.filter((item) => item._id !== product._id)
-		// setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity)
-		sum = sum - product.price
-		// setTotalQuanitites(prevTotalQuantities =>
-		//     prevTotalQuantities - foundProduct.quantity)
-		//     setCartItems(newCartItems)
-		dispatch(newallprodtotalcartdetails(newCartItems))
-		console.log(product);
+	let index;
+	let newsum;
+	// const onRemove = (product) => {
+	// 	foundProduct = newetcartdata.find((item) => item._id ===
+	// 		product._id)
+	// 	const newCartItems = newetcartdata.filter((item) => item._id !== product._id)
+	// 	sum = sum - product.price
+	// 	setTotalPrice(sum)
+	// 	// setCartstate(true)
+	// 	dispatch(newallprodtotalcartdetails(newCartItems))
+	// 	// console.log(product);
+
+
+	// }
+	 
+
+    const onRemove = (product) => {
+        foundProduct = cartItems.find((item) => item._id ===
+            product._id)
+        const newCartItems = cartItems.filter((item) => item._id !==   product._id)
+		// console.log(foundProduct);
+		// sum =sum-product.price;
+		// console.log(sum,foundProduct.price);
+		// console.log(newsum);
+		sum=sum-foundProduct.price
+		setTotalPrice(sum)
+
+		// console.log(newCartItems);
+        // setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity)
+
+        // setTotalQuanitites(prevTotalQuantities =>
+        //     prevTotalQuantities - foundProduct.quantity)
+            setCartItems(newCartItems)
+
+		// setCartstate(true)
+		dispatch(newallprodtotalcartdetails(cartItems))
+
+
+    }
+
+	const [cartstate, setCartstate] = useState(false)
+
+
+	const toggleCartItemQuantity = (id, value) => {
+        foundProduct = cartItems.find((item) => item._id ===
+            id)
+        index = cartItems.findIndex((product) => product._id ===
+            id);
+        const newCartItems = cartItems.filter((item) => item._id !== id)
+        if (value === "inc") {
+	
+			 newsum =foundProduct.price / foundProduct.quantity
+			//  console.log(newsum,foundProduct.price);
+
+			
+			 setCartstate(true)
+			 setCartItems([...newCartItems, {
+				 ...foundProduct,
+				 quantity: foundProduct.quantity + 1,
+				 price:foundProduct.price + newsum
+				}])
+				setTotalPrice(sum+newsum)
+
+            
+
+        }
+		 else if (value === 'dec') {
+			newsum =foundProduct.price / foundProduct.quantity
+			setCartstate(true)
+            if (foundProduct.quantity > 1) {
+                setCartItems([...newCartItems, {
+                    ...foundProduct,
+                    quantity: foundProduct.quantity - 1,
+					price:foundProduct.price - newsum
+                }])
+				sum=sum- newsum
+				setTotalPrice(sum)
+            }
+        }
+    }
+
+	if(cartstate)
+	{
+	  dispatch(newallprodtotalcartdetails(cartItems))
+
 
 
 	}
+
+
+
 	return (
 
 		<>
@@ -111,11 +139,12 @@ const cart = () => {
 
 				{newetcartdata.length < 1 && (
 					<div className='m-auto '>
-						
-						<img src="https://constant.myntassets.com/checkout/assets/img/empty-bag.webp" className='h-[15rem]' alt=""/>
+
+						<img src="https://constant.myntassets.com/checkout/assets/img/empty-bag.webp" className='h-[15rem]' alt="" />
+
 
 						<h3 className='m-auto text-2xl mt-7 text-center font-bold font-sans'>Hey, It feels so light !</h3>
-						
+
 						<Link href="/">
 							<button type="button"
 								className="border m-auto text-3xl text-pink-400 font-serif rounded-sm border-pink-500 mt-4 p-3">
@@ -129,16 +158,43 @@ const cart = () => {
 					{newetcartdata.map((element) => {
 						return <li key={element._id} className="flex flex-col py-6 sm:flex-row sm:justify-between">
 							<div className="flex w-full space-x-2 sm:space-x-4">
-								<img className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500" src={element.image} alt={element.desc} />
+								<img className="flex-shrink-0 object-top w-20 h-24 dark:border-transparent rounded outline-none sm:w-36 sm:h-40 dark:bg-gray-500" src={element.image} alt={element.desc} />
+								<span className="  rounded-full bg-slate-700 w-[2rem] h-4  p-0 relative left-[-40px] top-[-5px] text-white font-mono text-sm  leading-tight text-center">{element.quantity}
+								</span>
 								<div className="flex flex-col justify-between w-full pb-4">
 									<div className="flex justify-between w-full pb-2 space-x-2">
-										<div className="space-y-1">
-											<h3 className="text-lg font-semibold leading-snug sm:pr-8">{element.desc}</h3>
-											<p className="text-sm dark:text-gray-400">{element.brand}</p>
+										<div>
+											<h3 className="text-lg font-semibold mb-2 leading-snug sm:pr-8">{element.desc}</h3>
+											<p className="text-sm mb-4 dark:text-gray-400">{element.brand}</p>
 										</div>
 										<div className="text-right">
 											<p className="text-lg font-semibold">{element.price}</p>
 											<p className="text-sm line-through dark:text-gray-600">Flat 40% off on MRP</p>
+										</div>
+									</div>
+									<div className=" mb-5 items-center space-y-2 text-xs sm:space-y-0 sm:space-x-3 sm:flex">
+										<span className="block text-xl relative top-[-7px]">Quantity :</span>
+										<div className="space-x-1">
+											<button title="plus quantity" type="button"
+											 onClick={()=>toggleCartItemQuantity(element._id,'inc')}
+											className="inline-flex items-center justify-center w-8 h-8 py-0 border rounded-md shadow">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+													<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+												</svg>
+
+											</button>
+											<button title="quantity" type="button" className="inline-flex items-center justify-center w-8 h-8 py-0 relative top-[-8px] border rounded-md shadow">
+												{element.quantity}
+
+											</button>
+											<button title="minus quantity" type="button"
+											 onClick={()=>toggleCartItemQuantity(element._id,'dec')}
+											className="inline-flex items-center justify-center w-8 h-8 py-0 border rounded-md shadow">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+													<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+												</svg>
+
+											</button>
 										</div>
 									</div>
 									<div className="flex text-sm divide-x">
@@ -166,22 +222,22 @@ const cart = () => {
 
 
 				</ul>}
-				{ newetcartdata.length >= 1 && 
-				<div className="space-y-1 text-right">
-					<p>Total amount:
-						<span className="font-semibold">{sum}</span>
-					</p>
-					<p className="text-sm dark:text-gray-400">Not including taxes and shipping costs</p>
-				</div>}
-				{newetcartdata.length >= 1 && 
+				{newetcartdata.length >= 1 &&
+					<div className="space-y-1 text-right">
+						<p>Total amount:
+							<span className="font-semibold">{TotalPrice}</span>
+						</p>
+						<p className="text-sm dark:text-gray-400">Not including taxes and shipping costs</p>
+					</div>}
+				{newetcartdata.length >= 1 &&
 					<div className="flex justify-end space-x-4">
-					<button type="button" className="px-6 py-2 border rounded-md dark:border-violet-400">Back
-						<span className="sr-only sm:not-sr-only">to shop</span>
-					</button>
-					<button type="button" className="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400">
-						<span className="sr-only sm:not-sr-only">Continue to</span>Checkout
-					</button>
-				</div>}
+						<button type="button" className="px-6 py-2 border rounded-md dark:border-violet-400">Back
+							<span className="sr-only sm:not-sr-only">to shop</span>
+						</button>
+						<button type="button" className="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400">
+							<span className="sr-only sm:not-sr-only">Continue to</span>Checkout
+						</button>
+					</div>}
 			</div>
 		</>
 	)

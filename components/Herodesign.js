@@ -20,7 +20,7 @@ const Herodesign = (props) => {
 
 
   return (
-	<article  className="flex flex-col dark:bg-gray-900 shadow-xl md:mb-9 mb-5">
+	<article  className="flex flex-col border border-slate-400 hover:border-none  dark:bg-gray-900 shadow-xl md:mb-9 mb-5">
     
             <Link rel="noopener noreferrer" href={`/products/${props.id}`} aria-label="Te nulla oportere reprimique his dolorum">
               <img alt="" className="object-top  w-[100%] m-auto md:m-0 md:w-full h-[20rem]  md:h-[21rem] md:object-cover dark:bg-gray-500" src={props.img} />
