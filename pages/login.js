@@ -40,7 +40,7 @@ const login = () => {
 
     }
 
-    let res = await fetch("http://localhost:3000/api/login", {
+    let res = await fetch("https://filmycommerce.vercel.app/api/login", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ localStorage.setItem('success',response.success)
       theme: "light",
       });
       setTimeout(() => {
-        router.push("http://localhost:3000")
+        router.push("https://filmycommerce.vercel.app")
       }, 1000);
     }
     else{

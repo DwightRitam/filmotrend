@@ -29,7 +29,7 @@ const Navbar = () => {
   // console.log(success);
   const logout = () => {
     localStorage.removeItem('success');
-    router.push("http://localhost:3000")
+    router.push("https://filmycommerce.vercel.app")
   }
   // }, [])
   useEffect(() => {

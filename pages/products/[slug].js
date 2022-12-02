@@ -20,7 +20,7 @@ const [cartItems, setCartItems] = useState(cartdata);
 const dispatch=useDispatch()
 useEffect(() => {
  
-  fetch(`http://localhost:3000/api/getprodbyid?slug=${arr[0]}`)
+  fetch(`https://filmycommerce.vercel.app/api/getprodbyid?slug=${arr[0]}`)
   .then((response) => response.json())
   .then((data) =>dispatch(addcartdetails(data.productbyid)));
 
@@ -157,7 +157,7 @@ const carhandler=async(id,cartdata)=>{
           // console.log("carted");
 
           setTimeout(() => {
-            router.push("http://localhost:3000/cart")
+            router.push("https://filmycommerce.vercel.app/cart")
           }, 1500);
 
         }
