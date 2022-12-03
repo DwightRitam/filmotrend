@@ -9,7 +9,7 @@ const watches = () => {
 
   useEffect(() => {
  
-    fetch("https://filmycommerce.vercel.app/api/getwatches")
+    fetch("https://filmotrendbyritam.vercel.app/api/getwatches")
     .then((response) => response.json())
     .then((data) =>dispatch(addwatches(data.watches)));
     

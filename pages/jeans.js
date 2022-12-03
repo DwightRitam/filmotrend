@@ -9,7 +9,7 @@ const jeans = () => {
 
   useEffect(() => {
  
-    fetch("https://filmycommerce.vercel.app/api/getjeans")
+    fetch("https://filmotrendbyritam.vercel.app/api/getjeans")
     .then((response) => response.json())
     .then((data) =>dispatch(addjeans(data.jeans)));
     

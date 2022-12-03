@@ -29,7 +29,7 @@ const Navbar = () => {
   // console.log(success);
   const logout = () => {
     localStorage.removeItem('success');
-    router.push("https://filmycommerce.vercel.app")
+    router.push("https://filmotrendbyritam.vercel.app")
   }
   // }, [])
   useEffect(() => {

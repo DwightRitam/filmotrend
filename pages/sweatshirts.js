@@ -9,7 +9,7 @@ const sweatshirts = () => {
 
   useEffect(() => {
  
-    fetch("https://filmycommerce.vercel.app/api/getsweatshirts")
+    fetch("https://filmotrendbyritam.vercel.app/api/getsweatshirts")
     .then((response) => response.json())
     .then((data) =>dispatch(addsweatshirts(data.sweatshirts)));
     

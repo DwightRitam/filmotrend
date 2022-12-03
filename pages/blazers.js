@@ -9,7 +9,7 @@ const jeans = () => {
 
   useEffect(() => {
  
-    fetch("https://filmycommerce.vercel.app/api/getblazers")
+    fetch("https://filmotrendbyritam.vercel.app/api/getblazers")
     .then((response) => response.json())
     .then((data) =>dispatch(addblazers(data.blazers)));
     
@@ -17,7 +17,7 @@ const jeans = () => {
    
   }, [])
   const blazers=useSelector(getblazers)
-  console.log(blazers);
+  // console.log(blazers);
   
   return (
 

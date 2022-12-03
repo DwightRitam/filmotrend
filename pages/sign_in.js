@@ -30,7 +30,7 @@ const sign_in = () => {
 
     
 
-    let res= await fetch("https://filmycommerce.vercel.app/api/signin",{
+    let res= await fetch("https://filmotrendbyritam.vercel.app/api/signin",{
       method:"POST",
       headers:{
         'Content-Type':'application/json',
@@ -56,7 +56,7 @@ localStorage.setItem('success',response.success)
       theme: "light",
       });
       setTimeout(() => {
-        router.push("https://filmycommerce.vercel.app")
+        router.push("https://filmotrendbyritam.vercel.app")
       }, 1000);
     }
     else{
