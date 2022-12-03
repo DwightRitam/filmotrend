@@ -70,7 +70,7 @@ const Navbar = () => {
                   </button>
                 </div>
                 <Link href="/">
-                  <h2 className="text-2xl Filmotrend text-white font-bold">FilmoTrend</h2>
+                  <h2 className="text-2xl Filmotrend text-white font-bold">FilmyCommerce</h2>
                 </Link>
                 <ul className=" flex md:hidden text-red-600 items-center md:ml-6   md:space-x-1 md:space-y-0 ">
 

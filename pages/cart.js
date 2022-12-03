@@ -142,7 +142,7 @@ const cart = () => {
 						return <li key={element._id} className="flex flex-col py-6 sm:flex-row sm:justify-between">
 							<div className="flex w-full space-x-2 sm:space-x-4">
 								<img className="flex-shrink-0 object-top w-20 h-24 dark:border-transparent rounded outline-none sm:w-36 sm:h-40 dark:bg-gray-500" src={element.image} alt={element.desc} />
-								<span className="  rounded-full bg-slate-700 w-[2rem] h-4  p-0 relative left-[-40px] top-[-5px] text-white font-mono text-sm  leading-tight text-center">{element.quantity}
+								<span className="  rounded-full bg-slate-700 w-[2rem] h-4  p-0 relative left-[-32px] top-[-5px] text-white font-mono text-sm  leading-tight text-center">{element.quantity}
 								</span>
 								<div className="flex flex-col justify-between w-full pb-4">
 									<div className="flex justify-between w-full pb-2 space-x-2">
@@ -160,24 +160,33 @@ const cart = () => {
 										<div className="space-x-1">
 											<button title="plus quantity" type="button"
 											 onClick={()=>toggleCartItemQuantity(element._id,'inc')}
-											className="inline-flex items-center justify-center w-8 h-8 py-0 border rounded-md shadow">
+											className="inline-flex items-center justify-center w-8 h-8 py-0 border rounded-md shadow bg-blue-300">
 												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 													<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
 												</svg>
 
 											</button>
-											<button title="quantity" type="button" className="inline-flex items-center justify-center w-8 h-8 py-0 relative top-[-8px] border rounded-md shadow">
+											<button title="quantity" type="button" className="inline-flex items-center justify-center w-8 h-8 py-0 relative top-[-8px] border rounded-md shadow
+											bg-blue-300">
 												{element.quantity}
 
 											</button>
-											<button title="minus quantity" type="button"
-											 onClick={()=>toggleCartItemQuantity(element._id,'dec')}
-											className="inline-flex items-center justify-center w-8 h-8 py-0 border rounded-md shadow">
+											{element.quantity <=1 &&  <button title="minus" type="button" 
+											  onClick={()=>onRemove(element)}
+											className="inline-flex items-center justify-center w-8 h-8 py-0 border rounded-md shadow bg-blue-300">
 												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 													<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
 												</svg>
 
-											</button>
+											</button>}
+										{element.quantity >1 &&	<button title="minus quantity" type="button" 
+											 onClick={()=>toggleCartItemQuantity(element._id,'dec')}
+											className="inline-flex items-center justify-center w-8 h-8 py-0 border rounded-md shadow bg-blue-300">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+													<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+												</svg>
+
+											</button>}
 										</div>
 									</div>
 									<div className="flex text-sm divide-x">

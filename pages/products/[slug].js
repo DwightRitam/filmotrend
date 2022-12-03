@@ -16,7 +16,7 @@ const [cartItems, setCartItems] = useState(cartdata);
 
 
   let arr=window.location.pathname.split('/').slice(2)
- console.log(arr[0])
+//  console.log(arr[0])
 const dispatch=useDispatch()
 useEffect(() => {
  
@@ -172,7 +172,7 @@ Try & Buy might be available</p>
         <div className="flex pt-[20px]">
           <span className="title-font font-medium text-2xl text-gray-900">Price :{cartvalues.price}</span>
 
-          <button onClick={()=>carhandler(cartvalues._id,cartvalues,cartvalues.quantity)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded ">Add to cart</button>
+          <button onClick={()=>carhandler(cartvalues._id,cartvalues,cartvalues.quantity)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded ">Add to cart</button>
 
          
 

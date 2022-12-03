@@ -34,6 +34,9 @@ const shirts = () => {
             return  <Herodesign key={element._id} header={element.desc} img={element.image}  brandname={element.brand}  price={element.price} review="4.5" slug={element.slug} id={element._id}  />
         })}
     </div>
+    <h2 className='text-center text-2xl '> It Seems it ends here !</h2>
+    <hr className='  w-[85%] m-auto' />
+    <hr className='  w-[45%] pb-[10px] m-auto' />
     </div> 
 
   )}
