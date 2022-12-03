@@ -12,10 +12,8 @@ const cart = () => {
 	
 	const newetcartdata = useSelector(newgetallprodtotalcartdetails)
 	const [cartItems, setCartItems] = useState(newetcartdata);
-	// console.log(cartItems);
 	
 	dispatch(addcart(newetcartdata.length))
-	// console.log(newetcartdata);
 	let sum = 0;
 	for (let i = 0; i < newetcartdata.length; i++) {
 		const element = newetcartdata[i];
@@ -28,45 +26,30 @@ const cart = () => {
 	let foundProduct;
 	let index;
 	let newsum;
-	// const onRemove = (product) => {
-	// 	foundProduct = newetcartdata.find((item) => item._id ===
-	// 		product._id)
-	// 	const newCartItems = newetcartdata.filter((item) => item._id !== product._id)
-	// 	sum = sum - product.price
-	// 	setTotalPrice(sum)
-	// 	// setCartstate(true)
-	// 	dispatch(newallprodtotalcartdetails(newCartItems))
-	// 	// console.log(product);
 
 
-	// }
+
+	
+	const [cartstate, setCartstate] = useState(false)
+
+	let dummyarray=[];
 	 
 
     const onRemove = (product) => {
-        foundProduct = cartItems.find((item) => item._id ===
-            product._id)
-        const newCartItems = cartItems.filter((item) => item._id !==   product._id)
-		// console.log(foundProduct);
-		// sum =sum-product.price;
-		// console.log(sum,foundProduct.price);
-		// console.log(newsum);
-		sum=sum-foundProduct.price
-		setTotalPrice(sum)
+		
+        const newremovedCartItems = cartItems.filter((item) => item._id !==   product._id)
+		dummyarray.push(newremovedCartItems)
+		
+		
+		
+		dispatch(newallprodtotalcartdetails(dummyarray[0]))
+		router.reload(window.location.pathname)
 
-		// console.log(newCartItems);
-        // setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity)
-
-        // setTotalQuanitites(prevTotalQuantities =>
-        //     prevTotalQuantities - foundProduct.quantity)
-            setCartItems(newCartItems)
-
-		// setCartstate(true)
-		dispatch(newallprodtotalcartdetails(cartItems))
+		
 
 
     }
 
-	const [cartstate, setCartstate] = useState(false)
 
 
 	const toggleCartItemQuantity = (id, value) => {
@@ -78,8 +61,7 @@ const cart = () => {
         if (value === "inc") {
 	
 			 newsum =foundProduct.price / foundProduct.quantity
-			//  console.log(newsum,foundProduct.price);
-
+			
 			
 			 setCartstate(true)
 			 setCartItems([...newCartItems, {
@@ -94,8 +76,8 @@ const cart = () => {
         }
 		 else if (value === 'dec') {
 			newsum =foundProduct.price / foundProduct.quantity
-			setCartstate(true)
             if (foundProduct.quantity > 1) {
+				setCartstate(true)
                 setCartItems([...newCartItems, {
                     ...foundProduct,
                     quantity: foundProduct.quantity - 1,
@@ -110,6 +92,7 @@ const cart = () => {
 	if(cartstate)
 	{
 	  dispatch(newallprodtotalcartdetails(cartItems))
+	  router.reload(window.location.pathname)
 
 
 
@@ -198,7 +181,9 @@ const cart = () => {
 										</div>
 									</div>
 									<div className="flex text-sm divide-x">
-										<button type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
+										<button type="button" className="flex items-center px-2 py-1 pl-0 space-x-1"
+										 onClick={()=>onRemove(element)}
+										 >
 											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 fill-current">
 												<path d="M96,472a23.82,23.82,0,0,0,23.579,24H392.421A23.82,23.82,0,0,0,416,472V152H96Zm32-288H384V464H128Z"></path>
 												<rect width="32" height="200" x="168" y="216"></rect>
@@ -206,7 +191,7 @@ const cart = () => {
 												<rect width="32" height="200" x="312" y="216"></rect>
 												<path d="M328,88V40c0-13.458-9.488-24-21.6-24H205.6C193.488,16,184,26.542,184,40V88H64v32H448V88ZM216,48h80V88H216Z"></path>
 											</svg>
-											<a><span onClick={() => onRemove(element)} >Remove</span></a>
+											<a><span >Remove</span></a>
 										</button>
 										<button type="button" className="flex items-center px-2 py-1 space-x-1">
 											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 fill-current">

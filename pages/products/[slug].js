@@ -20,7 +20,7 @@ const [cartItems, setCartItems] = useState(cartdata);
 const dispatch=useDispatch()
 useEffect(() => {
  
-  fetch(`https://filmycommerce.vercel.app/api/getprodbyid?slug=${arr[0]}`)
+  fetch(`https://filmycommerce.vercel.appapi/getprodbyid?slug=${arr[0]}`)
   .then((response) => response.json())
   .then((data) =>dispatch(addcartdetails(data.productbyid)));
 
@@ -29,8 +29,7 @@ useEffect(() => {
  
 }, [])
 const cartvalues=useSelector(getaddcartdetails)
-// console.log(cartvalues._id);
-// console.log(cartvalues);
+
 
 
 
@@ -41,77 +40,13 @@ const addtocart=useSelector(getcartresponse)
 
 
 
-// const  carhandler= async(id)=>{
-  
-//   dispatch(addcartdetails(cartvalues));
 
-//   // const data = {
-//   //   title:cartvalues.title,
-//   //   desc:cartvalues.desc,
-//   //   category:cartvalues.category,
-//   //   brand :cartvalues.brand,
-//   //   image:cartvalues.image,
-//   //   image:cartvalues.image,
-//   //   price: cartvalues.price,
-//   //   slug:cartvalues.slug }
-
-//   let res = await fetch("https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app//api/addcartdata", {
-//       method: "POST",
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data)
-//     })
-//     let response = await res.json()
-//     setCartstate(response.success)
-//     dispatch(addcartresponse(cartstate))
-
-   
-  
-//     console.log( "response is", response.success);
-//     console.log( "response  after  reload is",!addtocart);
-
-
-
-//     if(response.success==true)
-//     {
-
-//     toast.success('Your desired product has been carted', {
-//       position: "bottom-left",
-//       autoClose: 3000,
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//       progress: undefined,
-//       theme: "light",
-//       });
-//       setTimeout(() => {
-//         router.push("https://filmotrend-mvqr-gxxkagpqk-dwightritam.vercel.app//cart")
-//       }, 1000);
-   
-//     }
-//     else{
-//       toast.error(response.error, {
-//         position: "bottom-left",
-//         autoClose: 1000,
-//         hideProgressBar: false,
-//         closeOnClick: true,
-//         pauseOnHover: true,
-//         draggable: true,
-//         progress: undefined,
-//         theme: "light",
-//         });
-//     }
-
-// }
 const [totalPrice, setTotalPrice] = useState(0);
 const [totalquantity, setTotalquantity] = useState(0)
 
 
 const carhandler=async(id,cartdata)=>{
-  // console.log("carted product is is",id);
-  // console.log("quantity is",quantity);
+  
   const checkProductInCart = cartItems.find((item) => item._id === cartdata._id);
   setTotalPrice((prevTotalPrice) =>prevTotalPrice + cartdata.price  )
   setTotalquantity((prevTotalQuantity) =>prevTotalQuantity + cartdata.quantity  )

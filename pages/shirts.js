@@ -17,7 +17,7 @@ const shirts = () => {
    
   }, [])
   const shirtvalues=useSelector(getshirts)
-  console.log(shirtvalues);
+  // console.log(shirtvalues);
   
   return (
    
